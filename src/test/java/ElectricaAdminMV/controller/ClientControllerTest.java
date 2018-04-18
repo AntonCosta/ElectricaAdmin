@@ -58,9 +58,6 @@ public class ClientControllerTest extends TestCase {
         ClientController clnt = new ClientController();
         Client clt = new Client();
         assertEquals("Year can't be 0 or less!", clnt.AddClientIndex(clt,-1,10,10));
-        assertEquals("Month can't be 0 or less!", clnt.AddClientIndex(clt,10,-1,10));
-        assertEquals("Money to pay can't be less than 0!", clnt.AddClientIndex(clt,10,10,-1));
-        assertEquals("Id cannot be empty!",clnt.AddClientIndex(clt,10,10,10));
     }
 
     @Test
@@ -110,6 +107,18 @@ public class ClientControllerTest extends TestCase {
         Client clt = new Client("Asd","asd","12");
         clnt.AddClient("Asd","asd","12");
         assertEquals(null,clnt.AddClientIndex(clt,10,10,10));
+    }
+
+
+    // cerinta c
+
+    @Test
+    public void testViewValidList() throws Exception{
+        ClientController clnt = new ClientController();
+        Client clt = new Client("Asd","asd","12");
+        clnt.AddClient("Asd","asd","12");
+        clnt.AddClientIndex(clt,10,10,10);
+        assertEquals("Year: 10, Month: 10, Penalty: 10\n", clnt.ListIssue(clt));
     }
 
 

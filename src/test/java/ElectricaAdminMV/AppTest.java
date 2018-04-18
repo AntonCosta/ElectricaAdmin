@@ -1,39 +1,23 @@
 package ElectricaAdminMV;
 
-import junit.framework.Test;
+import ElectricaAdminMV.controller.ClientController;
+import ElectricaAdminMV.model.Client;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
 
-/**
- * Unit test for simple ElectricaAdminMV.App.
- */
+
 public class AppTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testAllRequirements() throws Exception{
+        ClientController clnt = new ClientController();
+        Client clt = new Client("Asd","asd","12");
+        clnt.AddClient("Asd","asd","12");
+        clnt.AddClientIndex(clt,10,10,10);
+        assertEquals("Monthly index already exists!",clnt.AddClientIndex(clt,10,10,10));
+        clnt.AddClientIndex(clt,20,10,10);
+        assertEquals("Year: 10, Month: 10, Penalty: 10\nYear: 20, Month: 10, Penalty: 10\n", clnt.ListIssue(clt));
     }
 
 
