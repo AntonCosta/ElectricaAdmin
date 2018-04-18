@@ -42,6 +42,13 @@ public class ClientControllerTest extends TestCase {
         assertEquals("Name or address cannot be empty!", clnt.AddClient("Ali","","1"));
     }
 
+    @Test
+    public void testInvalidClientCharacter() throws Exception{
+        ClientController clnt = new ClientController();
+        assertEquals("Invalid character: %", clnt.AddClient("Ali%","asd","1"));
+    }
+
+
 
 
     // cerinta b
