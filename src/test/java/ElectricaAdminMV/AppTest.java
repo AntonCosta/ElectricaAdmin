@@ -17,9 +17,8 @@ public class AppTest
         clnt.AddClientIndex(clt,10,10,10);
         assertEquals("Monthly index already exists!",clnt.AddClientIndex(clt,10,10,10));
         clnt.AddClientIndex(clt,20,10,10);
-        assertEquals("Year: 10, Month: 10, Penalty: 10\nYear: 20, Month: 10, Penalty: 10\n", clnt.ListIssue(clt));
+        assertEquals("Year: 10, Month: 10, Penalty: 10\nYear: 10, Month: 10, Penalty: 10\nYear: 20, Month: 10, Penalty: 10\n", clnt.ListIssue(clt));
     }
-
 
 
 
